@@ -4,12 +4,30 @@
 Alumnos
 {% endblock title_head %}
 
+{% block header %}
+Lista de alumnos
+{% endblock header %}
+
+{% block h2_header %}
+{% endblock h2_header %}
+{% block h3_header %}
+{% endblock h3_header %}
+
+{% block main %}
+
+<a href={% url "crearAlumno" %}>Crear Alumno</a>
+
+<form action={% url "alumnos" %} method="get">
+ 
+    <a href=>{{formulario}}</a>
+
+</form>
 
 
-{% if alumnos %}
+{% if "alumnos" %}
 
 <ul>
-    {% for alumno in alumnos %}
+    {% for alumno in "alumnos" %}
     <li>{{alumno}}</li>
     {% endfor %}
 </ul>
@@ -17,3 +35,5 @@ Alumnos
 {% else %}
 <p>Aun no hay alumnos creados</p>
 {% endif %}
+
+{% endblock main %}
