@@ -4,8 +4,11 @@ from django.shortcuts import render, redirect
 def inicio(request):
     return render(request, "inicio/inicio.html")
 
+from django.http import HttpResponse
+from django.template import Template, Context, loader
 
-from inicio.forms import CrearFormulario
+
+from inicio.forms import CrearFormulario, BuscarAlumno
 from inicio.models import Alumno
 
 def crearAlumno(request):
@@ -23,15 +26,20 @@ def crearAlumno(request):
             datos = formulario.cleaned_data
             alumno = Alumno(nombre=datos.get("nombre"), apellido=datos.get("apellido"))
             alumno.save()
-            return redirect("autos")
+            return redirect("alumnos")
 
     
     return render(request, "inicio/crear_alumno.html", {"formulario": formulario})
     
 def alumnos(request):
     
-    alumnos = Alumno.objects.all()
+    formulario = BuscarAlumno(request.GET)
+    if formulario.is_valid():   
+        apellido = formulario.cleaned_data["apellido"]
+        alumnos = Alumno.objects.filter(apellido=apellido)
     
-    return render(request, "inicio/alumnos.html", {"alumnos": alumnos})
+    # alumnos = Alumno.objects.all()
+    
+    return render(request, "inicio/alumnos.html", {"alumnos": alumnos, "formulario": formulario})
     
     

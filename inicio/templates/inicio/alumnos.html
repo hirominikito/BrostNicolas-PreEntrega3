@@ -15,25 +15,20 @@ Lista de alumnos
 
 {% block main %}
 
-<a href={% url "crearAlumno" %}>Crear Alumno</a>
-
-<form action={% url "alumnos" %} method="get">
- 
-    <a href=>{{formulario}}</a>
+<form action=¨{% url "alumnos" %} method="get">
+    {{formulario}}
+    <input type="submit" value"Buscar">
 
 </form>
 
-
-{% if "alumnos" %}
-
-<ul>
-    {% for alumno in "alumnos" %}
-    <li>{{alumno}}</li>
-    {% endfor %}
-</ul>
-
+{% if alumnos %}
+    <ul>
+        {% for alumno in alumnos %}
+        <li>{{alumno}}</li>
+        {% endfor %}
+    </ul>
 {% else %}
 <p>Aun no hay alumnos creados</p>
-{% endif %}
+{% endif %} 
 
 {% endblock main %}
