@@ -38,7 +38,7 @@ def alumnos(request):
         apellido = formulario.cleaned_data["apellido"]
         alumnos = Alumno.objects.filter(apellido=apellido)
     
-    # alumnos = Alumno.objects.all()
+    alumnos = Alumno.objects.all()
     
     return render(request, "inicio/alumnos.html", {"alumnos": alumnos, "formulario": formulario})
     
