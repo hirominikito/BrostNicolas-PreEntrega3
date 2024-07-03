@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %} 
-Crear Alumnos
+Editar Alumnos
 {% endblock title %}
 
 {% block title_head %}
@@ -9,12 +9,12 @@ Inicio
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear Alumno
+Editando {{alumno}}
 {% endblock h1_header %}
 
 {% block main %}
 
-<form action={% url "crear_alumno" %} method="POST">
+<form action={% url "editar_alumno" alumno.id %} method="POST">
     {% csrf_token %}
 
     {{formulario}}

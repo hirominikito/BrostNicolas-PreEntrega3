@@ -16,16 +16,17 @@ Alumnos
 
 {% block main %}
 
-<form action=¨{% url "alumnos" %} method="get">
+<form action={% url "alumnos" %} method="get">
     {{formulario}}
-    <input type="submit" value"Buscar">
-
+    <button>Buscar</button>
 </form>
 
 {% if alumnos %}
     <ul>
         {% for alumno in alumnos %}
-        <li>{{alumno}}</li>
+        <li>{{alumno}} | <a href={% url "eliminar_alumno" alumno.id %}>Eliminar</a> |
+            <a href={% url "editar_alumno" alumno.id %}>Editar</a> |
+            <a href={% url "mostrar_alumno" alumno.id %}>Mostrar</a></li>
         {% endfor %}
     </ul>
 {% else %}

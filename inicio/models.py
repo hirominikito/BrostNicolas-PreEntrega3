@@ -5,4 +5,4 @@ class Alumno(models.Model):
     apellido = models.CharField(max_length=20)
     
     def __str__(self):
-        return f"Alumno: {self.apellido} {self.nombre}"
+        return f"Alumno:  {self.nombre} {self.apellido} "
