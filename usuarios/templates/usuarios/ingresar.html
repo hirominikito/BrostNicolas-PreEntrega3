@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %} 
-Crear Alumnos
+Inicio de sesion
 {% endblock title %}
 
 {% block title_head %}
@@ -9,7 +9,7 @@ Inicio
 {% endblock title_head %}
 
 {% block h1_header %}
-Crear Alumno
+Inicio de sesion
 {% endblock h1_header %}
 
 {% block h3_header %}
@@ -17,12 +17,12 @@ Crear Alumno
 
 {% block main %}
 
-<form action={% url "crear_alumno" %} method="POST">
+<form action={% url "ingresar" %} method="POST">
     {% csrf_token %}
 
     {{formulario}}
 
-    <input type="submit" value="Enviar">
+    <input type="submit" value="Iniciar Sesion">
 
 </form>
 
