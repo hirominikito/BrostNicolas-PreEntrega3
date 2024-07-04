@@ -10,6 +10,7 @@ from django.template import Template, Context, loader
 
 from inicio.forms import CrearAlumnoFormulario, BuscarAlumno, EditarAlumnoFormulario
 from inicio.models import Alumno
+from django.contrib.auth.decorators import login_required
 
 def crear_alumno(request):
 
@@ -40,11 +41,13 @@ def alumnos(request):
     
     return render(request, "inicio/alumnos.html", {"alumnos": alumnos, "formulario": formulario})
 
+@login_required
 def eliminar_alumno(request, id):
     alumno = Alumno.objects.get(id=id)
     alumno.delete()
     return redirect("alumnos")
 
+@login_required
 def editar_alumno(request, id):
     alumno = Alumno.objects.get(id=id)
     
