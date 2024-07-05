@@ -37,7 +37,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumnos/">{% block h2_header %}alumnos{% endblock h2_header %}</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumno/crear/">{% block h3_header %}crear alumnos{% endblock h3_header %}</a></li>
                         {% if request.user.is_authenticated %}
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">{{request.user.username}}</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "editar_perfil" %}>{{request.user.username}}</a>
                         <form action={% url "salir" %} method="POST">
                         {% csrf_token %}
                         <input type="submit" class="nav-link py-3 px-0 px-lg-3 rounded" value="Cerrar Sesion">
