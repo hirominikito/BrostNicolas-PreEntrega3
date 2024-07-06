@@ -24,6 +24,7 @@
     </head>
 
     <body id="page-top">
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
@@ -35,9 +36,16 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumnos/">{% block h2_header %}alumnos{% endblock h2_header %}</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumno/crear/">{% block h3_header %}crear alumnos{% endblock h3_header %}</a></li>
                         {% if request.user.is_authenticated %}
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "editar_perfil" %}>{{request.user.username}}</a>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumno/crear/">{% block h3_header %}crear alumnos{% endblock h3_header %}</a></li>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "editar_perfil" %}>
+                            {% if request.user.otrosdatos.avatar %}
+                            <img src={{request.user.otrosdatos.avatar.url}} alt="Avatar" height="30px">
+                            {% else %}
+                            <img src={% static "assets/img/avataaars.svg" %} alt="Avatar" heigth="30px">
+                            {% endif %}
+                            {{request.user.username}}
+                        </a>
                         <form action={% url "salir" %} method="POST">
                         {% csrf_token %}
                         <input type="submit" class="nav-link py-3 px-0 px-lg-3 rounded" value="Cerrar Sesion">
@@ -65,13 +73,14 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 
-                {% comment %} <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p> {% endcomment %}
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">{% block descripcion %}{% endblock descripcion %}</p>
             </div>
         </header>
         <main>
             {% block main %}{% endblock main %}
         </main>
+
         <!-- Footer-->
         <footer class="footer text-center">
             <div class="container">
@@ -98,7 +107,7 @@
                         <h4 class="text-uppercase mb-4">About Freelancer</h4>
                         <p class="lead mb-0">
                             Freelance is a free to use, MIT licensed Bootstrap theme created by
-                            <a href="http://startbootstrap.com">Start Bootstrap</a>
+                            <a href={% url "acerca_de_mi" %}>Acerca de mí</a>
                             .
                         </p>
                     </div>

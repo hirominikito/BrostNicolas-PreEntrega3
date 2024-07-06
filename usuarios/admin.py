@@ -1,3 +1,5 @@
 from django.contrib import admin
+from usuarios.models import OtrosDatos
 
-# Register your models here.
+admin.site.register(OtrosDatos)
+

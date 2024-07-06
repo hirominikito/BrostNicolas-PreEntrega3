@@ -4,13 +4,12 @@ from django.shortcuts import render, redirect
 def inicio(request):
     return render(request, "inicio/inicio.html")
 
-from django.http import HttpResponse
-from django.template import Template, Context, loader
-
 
 from inicio.forms import CrearAlumnoFormulario, BuscarAlumno, EditarAlumnoFormulario
 from inicio.models import Alumno
 from django.contrib.auth.decorators import login_required
+
+
 
 def crear_alumno(request):
 
@@ -25,7 +24,7 @@ def crear_alumno(request):
             
         if formulario.is_valid():
             datos = formulario.cleaned_data
-            alumno = Alumno(nombre=datos.get("nombre"), apellido=datos.get("apellido"))
+            alumno = Alumno(nombre=datos.get("nombre"), apellido=datos.get("apellido"), fecha=datos.get("fecha de creacion"),edad=datos.get("edad"))
             alumno.save()
             return redirect("alumnos")
 
