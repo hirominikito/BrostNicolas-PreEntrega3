@@ -10,3 +10,4 @@ Despues estan los apartados de cerrar sesion, volver al inicio, y acerca de mi, 
 El perfil de usuario no llegue a hacerlo, por eso agregue mas datos a los alumnos en el ver mas (son las 23:50 del viernes 5/7 y aun no termine el video:))
 Graciassssss!!
 
+link del video https://youtu.be/dte_oHkDDjk
