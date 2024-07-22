@@ -21,7 +21,13 @@ Inicio
     <li>Nombre: {{alumno.nombre}}</li>
     <li>Apellido: {{alumno.apellido}}</li>
     <li>edad: {{alumno.edad}}</li>
-    <li>Fecha de creacion: {{alumno.fecha}}</li>
+    <li>Fecha: {{alumno.fecha}}</li>
+<ol>
+    | <a href={% url "editar_alumno" alumno.id %}>Editar</a> | 
+    <a href={% url "eliminar_alumno" alumno.id %}>Eliminar</a> |
+</ol>
 </ul>
+
+
 {% endblock main %}
 

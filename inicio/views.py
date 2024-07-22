@@ -10,7 +10,7 @@ from inicio.models import Alumno
 from django.contrib.auth.decorators import login_required
 
 
-
+@login_required
 def crear_alumno(request):
 
     print("valor de la request: ", request)
@@ -24,7 +24,7 @@ def crear_alumno(request):
             
         if formulario.is_valid():
             datos = formulario.cleaned_data
-            alumno = Alumno(nombre=datos.get("nombre"), apellido=datos.get("apellido"), fecha=datos.get("fecha de creacion"),edad=datos.get("edad"))
+            alumno = Alumno(nombre=datos.get("nombre"), apellido=datos.get("apellido"), fecha=datos.get("fecha"),edad=datos.get("edad"))
             alumno.save()
             return redirect("alumnos")
 

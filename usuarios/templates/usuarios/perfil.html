@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %} 
+Usuario
+{% endblock title %}
+
+
+{% block title_head %}
+Inicio
+{% endblock title_head %}
+
+{% block h1_header %}
+{{request.user.username}}
+{% endblock h1_header %}
+
+
+{% block main %}
+<ul>
+    <li>Usuario: {{request.user.username}} </li>
+    <li>Nombre: {{request.user.first_name}}</li>
+    <li>Apellido: {{request.user.last_name}}</li>
+    <li>email: {{request.user.email}}</li>
+</ul>
+<a href={% url "editar_perfil" %}>Editar Perfil</a>
+{% endblock main %}
+

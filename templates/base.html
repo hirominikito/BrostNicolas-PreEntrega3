@@ -38,11 +38,11 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumnos/">{% block h2_header %}alumnos{% endblock h2_header %}</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/alumno/crear/">{% block h3_header %}crear alumnos{% endblock h3_header %}</a></li>
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "editar_perfil" %}>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "perfil" %}>
                             {% if request.user.otrosdatos.avatar %}
-                            <img src={{request.user.otrosdatos.avatar.url}} alt="Avatar" height="30px">
+                            <img class="nav-link py-0 px-0 px-lg-3 rounded" src={{request.user.otrosdatos.avatar.url}} alt="Avatar" height="60px">
                             {% else %}
-                            <img src={% static "assets/img/avataaars.svg" %} alt="Avatar" heigth="30px">
+                            <img class="nav-link py-0 px-0 px-lg-3 rounded" src={% static "assets/img/avataaars.svg" %} alt="Avatar" heigth="60px">
                             {% endif %}
                             {{request.user.username}}
                         </a>
@@ -61,9 +61,14 @@
 
         <!-- Masthead-->
         <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
+            <div class="container d-flex align-items-center flex-column ">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="..." />
+                {% if request.user.otrosdatos.avatar %}
+                <img class="masthead-avatar mb-5" src={{request.user.otrosdatos.avatar.url}} alt="Avatar" height="300"/>
+                {% else %}
+                <img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="Avatar" height="300"/>
+                {% endif %}
+                {% comment %} <img class="masthead-avatar mb-5" src={% block imagen_perfil %}{% static "assets/img/avataaars.svg" %}{% endblock imagen_perfil %} alt="..."/> {% endcomment %}
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">{% block h1_header %}{% endblock h1_header %}</h1>
                 <!-- Icon Divider-->
@@ -87,26 +92,26 @@
                 <div class="row">
                     <!-- Footer Location-->
                     <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-4">Location</h4>
+                        <h4 class="text-uppercase mb-4"></h4>
                         <p class="lead mb-0">
-                            2215 John Daniel Drive
+                            
                             <br />
-                            Clark, MO 65243
+                            
                         </p>
                     </div>
                     <!-- Footer Social Icons-->
-                    <div class="col-lg-4 mb-5 mb-lg-0">
+                    {% comment %} <div class="col-lg-4 mb-5 mb-lg-0">
                         <h4 class="text-uppercase mb-4">Around the Web</h4>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                    </div>
+                    </div> {% endcomment %}
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">About Freelancer</h4>
+                        <h4 class="text-uppercase mb-4"></h4>
                         <p class="lead mb-0">
-                            Freelance is a free to use, MIT licensed Bootstrap theme created by
+                            Pagina creada para curso de Coderhouse
                             <a href={% url "acerca_de_mi" %}>Acerca de mí</a>
                             .
                         </p>

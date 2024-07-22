@@ -52,14 +52,19 @@ def editar_perfil(request):
             otrosdatos.avatar = formulario.cleaned_data.get("avatar")
             otrosdatos.save()
             formulario.save()
-            return redirect("editar_perfil")
+            return redirect("perfil")
         
     return render(request, "usuarios/editar_perfil.html", {"formulario": formulario})
 
 class CambiarClaveUsuario(LoginRequiredMixin, PasswordChangeView):
     template_name = "usuarios/cambiar_clave.html"
-    sucess_url = reverse_lazy("editar_perfil")
+    sucess_url = reverse_lazy("perfil")
     
 def acerca_de_mi(request):
 
     return render(request, "usuarios/acerca_de_mi.html")
+
+def perfil(request):
+    otrosdatos = request.user.otrosdatos
+    formulario = FormularioEditarPerfil(initial={"avatar":otrosdatos.avatar}, instance=request.user)
+    return render(request, "usuarios/perfil.html", {"formulario": formulario})

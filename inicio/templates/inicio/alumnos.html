@@ -21,9 +21,10 @@ Lista de alumnos
 {% if alumnos %}
     <ul>
         {% for alumno in alumnos %}
-        <li>{{alumno}} | <a href={% url "eliminar_alumno" alumno.id %}>Eliminar</a> |
-            <a href={% url "editar_alumno" alumno.id %}>Editar</a> |
-            <a href={% url "mostrar_alumno" alumno.id %}>Mostrar</a></li>
+        <li>{{alumno}} 
+        | <a href={% url "mostrar_alumno" alumno.id %}>Mostrar</a> | 
+        <a href={% url "editar_alumno" alumno.id %}>Editar</a> | 
+        <a href={% url "eliminar_alumno" alumno.id %}>Eliminar</a> |</li>
         {% endfor %}
     </ul>
 {% else %}

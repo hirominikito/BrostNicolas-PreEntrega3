@@ -1,11 +1,10 @@
 from django.db import models
-from datetime import timezone
 
 
 class Alumno(models.Model):
     nombre = models.CharField(max_length=20)
     apellido = models.CharField(max_length=20)
-    fecha = models.DateField(timezone)
+    fecha = models.DateField()
     edad = models.IntegerField() 
     
     def __str__(self):

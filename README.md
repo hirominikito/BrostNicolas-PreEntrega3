@@ -1,13 +1,10 @@
 PROYECTO FINAL PYTHON
 
-La pagina web creada esta pensada para que un profesor se cree su usuario, y pueda tener el control de su cantidad de alumnos, sus dats personales, y la fecha en que los anoto en la lista. La lista puede ser vista por cualquier persona, este o no registrada, asi como tambien los datos de cada alumno, lo que no se puede hacer sin haber iniciado sesion es crear o modificar un alumno.
-Al iniciar sesion se tiene acceso, a la lista de alumnos(igual que sin iniciar sesion) y en ella hay botones con los cuales se puede eliminar, editar, ver y crear alumnos, todo eso desde la vista de alumnos. 
+La pagina web creada esta pensada para que un profesor/administrador/encargado se cree su usuario, y pueda tener el control de sus alumnos, sus datos personales, y la fecha en que los anoto en la lista. La lista puede ser vista por cualquier persona, este o no registrada, asi como tambien los datos de cada alumno, lo que no se puede hacer sin haber iniciado sesion es crear o modificar un alumno. La lista es de trabajo comun, por eso pueden entrar mas profesores/administradores/encargados y modificarla segun sa necesario, solo deben tener su usuario registrado.
+Al iniciar sesion se tiene acceso, a la lista de alumnos(igual que sin iniciar sesion) y en ella hay botones con los cuales se puede eliminar, editar, ver y crear alumnos, todo eso desde la vista de alumnos, si se tiene sesion iniciada se puede acceder a cualquiera de estos apartados, y si no, al tocar algun apartado solo para usuarios(como por ej. editar o eliminar) la pagina lo envia al inicio de sesion. 
 Desde la vista de creacion de alumnos se pueden crear los mismos.
-Desde la vista que contiene el avatar del usuario(una vez iniciada la sesion), accediendo a esta, se puede editar la informacion personal del usuario, asi como su avatar, y tocando un boton mas, se puede cambiar la contraseña (al cambiarla da un error mostrado en el video que no encontre solucion aun viendo en detalle cada paso en las clases, de igual manera si actualizo, la clave se cambio correctamente y se puede seguir usando todo normal).
+Desde la vista que contiene el avatar del usuario(que solo se ve al iniciar sesion), se ingresa al perfil del usuario, donde se muestra su avatar y su informacion. Desde el boton de "editar perfil" se puede editar la informacion personal del usuario, asi como su avatar, y tocando un boton mas, se puede cambiar la contraseña.
 Despues estan los apartados de cerrar sesion, volver al inicio, y acerca de mi, donde se detallan algunos datos mios.
 
-
-El perfil de usuario no llegue a hacerlo, por eso agregue mas datos a los alumnos en el ver mas (son las 23:50 del viernes 5/7 y aun no termine el video:))
-Graciassssss!!
-
+Muchas gracias, Espero este bien!
 link del video https://youtu.be/dte_oHkDDjk
