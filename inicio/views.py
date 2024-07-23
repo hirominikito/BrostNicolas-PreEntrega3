@@ -50,7 +50,7 @@ def eliminar_alumno(request, id):
 def editar_alumno(request, id):
     alumno = Alumno.objects.get(id=id)
     
-    formulario = EditarAlumnoFormulario(initial={"apellido": alumno.apellido, "nombre": alumno.nombre})
+    formulario = EditarAlumnoFormulario(initial={"apellido": alumno.apellido, "nombre": alumno.nombre,"edad": alumno.edad, "fecha": alumno.fecha})
     
     if request.method == "POST":
         formulario = EditarAlumnoFormulario(request.POST)
@@ -58,6 +58,8 @@ def editar_alumno(request, id):
             info = formulario.cleaned_data
             alumno.apellido = info["apellido"]
             alumno.nombre = info["nombre"]
+            alumno.edad = info["edad"]
+            alumno.fecha = info["fecha"]
             alumno.save()
             return redirect("alumnos")
     

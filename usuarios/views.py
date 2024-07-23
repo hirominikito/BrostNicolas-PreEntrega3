@@ -58,7 +58,7 @@ def editar_perfil(request):
 
 class CambiarClaveUsuario(LoginRequiredMixin, PasswordChangeView):
     template_name = "usuarios/cambiar_clave.html"
-    sucess_url = reverse_lazy("perfil")
+    success_url = reverse_lazy("perfil")
     
 def acerca_de_mi(request):
 

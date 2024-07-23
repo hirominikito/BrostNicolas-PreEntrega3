@@ -9,5 +9,3 @@ class Alumno(models.Model):
     
     def __str__(self):
         return f"Alumno {self.nombre} {self.apellido}"
-
-
