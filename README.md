@@ -7,4 +7,4 @@ Desde la vista que contiene el avatar del usuario(que solo se ve al iniciar sesi
 Despues estan los apartados de cerrar sesion, volver al inicio, y acerca de mi, donde se detallan algunos datos mios.
 
 Muchas gracias, Espero este bien!
-link del video https://youtu.be/dte_oHkDDjk
+link del video https://youtu.be/rqnnq5m35tE
